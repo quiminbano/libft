@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 13:01:50 by corellan          #+#    #+#             */
-/*   Updated: 2023/10/22 10:46:30 by corellan         ###   ########.fr       */
+/*   Updated: 2023/10/22 20:54:03 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ static size_t	ft_count_char(char const *str, char c)
 	size_t	i;
 
 	i = 0;
-	while (str[i] == c)
-	{
+	while (str[i] == c && c != 0)
 		i++;
-	}
 	return (i);
 }
 
