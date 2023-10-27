@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 10:44:22 by corellan          #+#    #+#             */
-/*   Updated: 2023/10/22 09:13:47 by corellan         ###   ########.fr       */
+/*   Created: 2022/12/09 18:08:03 by corellan          #+#    #+#             */
+/*   Updated: 2023/10/27 23:42:06 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*copy;
 	t_list	*temp;
-	t_list	*iter;
 
-	iter = lst;
-	copy = (void *)0;
-	temp = (void *)0;
-	while (iter != (void *)0)
+	if ((*lst) != (void *)0)
 	{
-		temp = ft_lstnew((*f)(iter->content));
-		if (temp == (void *)0)
+		while ((*lst) != 0)
 		{
-			ft_lstclear(&copy, del);
-			return (0);
+			temp = ((*lst)->next);
+			(*del)((*lst)->content);
+			free((*lst));
+			(*lst) = temp;
 		}
-		ft_lstadd_back(&copy, temp);
-		iter = iter->next;
-		temp = temp->next;
 	}
-	return (copy);
+	else
+		temp = (*lst);
 }

@@ -6,11 +6,9 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 13:28:40 by corellan          #+#    #+#             */
-/*   Updated: 2023/10/22 09:12:25 by corellan         ###   ########.fr       */
+/*   Updated: 2023/10/24 12:20:38 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 static int	ft_atoi_pos(char const *str, int i, int counter, int neg)
 {

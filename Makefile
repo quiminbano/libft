@@ -6,7 +6,7 @@
 #    By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 12:00:04 by corellan          #+#    #+#              #
-#    Updated: 2023/10/22 09:11:37 by corellan         ###   ########.fr        #
+#    Updated: 2023/10/27 23:45:51 by corellan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c \
 ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
 ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
-SRC_B = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
-ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+SRC_B = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c \
+ft_lstnew_bonus.c ft_lstsize_bonus.c
 
 OUT = $(SRC:.c=.o)
 
@@ -38,11 +39,11 @@ $(NAME): $(OUT)
 bonus: .bonus
 
 .bonus: $(OUT) $(OUT_B)
-		ar rc $(NAME) $(OUT) $(OUT_B)
+		ar rus $(NAME) $(OUT) $(OUT_B)
 		@touch .bonus
 
 %.o: %.c
-		@$(CC) $(FLAGS) -I. -c $< -o $@
+		$(CC) $(FLAGS) -I. -c $< -o $@
 
 clean:
 		rm -f $(OUT) $(OUT_B)
@@ -52,3 +53,5 @@ fclean: clean
 		rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean

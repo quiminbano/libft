@@ -6,11 +6,9 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:20:35 by corellan          #+#    #+#             */
-/*   Updated: 2023/10/22 09:12:39 by corellan         ###   ########.fr       */
+/*   Updated: 2023/10/27 21:46:29 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isalpha(int c)
 {

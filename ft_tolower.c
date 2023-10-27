@@ -6,11 +6,9 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:21:01 by corellan          #+#    #+#             */
-/*   Updated: 2023/10/22 09:15:09 by corellan         ###   ########.fr       */
+/*   Updated: 2023/10/27 22:25:55 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int c)
 {
