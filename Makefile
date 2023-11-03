@@ -6,7 +6,7 @@
 #    By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 12:00:04 by corellan          #+#    #+#              #
-#    Updated: 2023/10/27 23:45:51 by corellan         ###   ########.fr        #
+#    Updated: 2023/11/03 10:09:50 by corellan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
 SRC_B = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c \
-ft_lstnew_bonus.c ft_lstsize_bonus.c
+ft_lstnew_bonus.c ft_lstsize_bonus.c $(SRC)
 
 OUT = $(SRC:.c=.o)
 
@@ -34,20 +34,17 @@ CC = cc
 all: $(NAME)
 
 $(NAME): $(OUT)
-		ar rc $(NAME) $(OUT)
+		$(CC) $(FLAGS) -c $(SRC)
+		ar rcs $(NAME) $(OUT)
 
-bonus: .bonus
+bonus: $(OUT_B)
 
-.bonus: $(OUT) $(OUT_B)
-		ar rus $(NAME) $(OUT) $(OUT_B)
-		@touch .bonus
-
-%.o: %.c
-		$(CC) $(FLAGS) -I. -c $< -o $@
+$(OUT_B):
+		$(CC) $(FLAGS) -c $(SRC_B)
+		ar rus $(NAME) $(OUT_B)
 
 clean:
 		rm -f $(OUT) $(OUT_B)
-		@rm -f .bonus
 
 fclean: clean
 		rm -f $(NAME)
