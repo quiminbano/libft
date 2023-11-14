@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 13:28:40 by corellan          #+#    #+#             */
-/*   Updated: 2023/10/24 12:20:38 by corellan         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:07:20 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_atoi(char const *str)
 	i = 0;
 	neg = 1;
 	counter = 0;
-	while (str[i] == ' ' || (str[i] >= 8 && str[i] <= 13))
+	while (str[i] == ' ' || (str[i] > 8 && str[i] <= 13))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{

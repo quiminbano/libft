@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 13:01:50 by corellan          #+#    #+#             */
-/*   Updated: 2023/10/22 20:54:03 by corellan         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:16:48 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char	**ft_split_free(char **array, size_t i)
 {
 	while (i > 0)
 	{
-		free(array[i--]);
+		free(array[--i]);
 		array[i] = NULL;
 	}
 	free(array);
