@@ -6,88 +6,46 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 13:28:40 by corellan          #+#    #+#             */
-/*   Updated: 2024/04/18 23:58:47 by corellan         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:29:13 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_atoi_pos(char const *str, int i, int counter, int neg)
+#include "libft.h"
+
+char	*skip_whitespaces(const char *str)
 {
-	long long	num;
-	long long	negative;
-	int			number;
+	char	*iterable;
 
-	num = 0;
-	number = 0;
-	negative = (long long)neg;
-	while (str[i] <= 57 && str[i] >= 48)
-	{
-		num *= 10;
-		num += (str[i] - '0');
-		i++;
-	}
-	num *= negative;
-	if ((i - counter) >= 20)
-		return (-1);
-	else if (num < 0)
-		return (-1);
-	else
-	{
-		number = (int)num;
-		return (number);
-	}
-}
-
-static int	ft_atoi_neg(char const *str, int i, int counter, int neg)
-{
-	long long	num;
-	long long	negative;
-	int			number;
-
-	num = 0;
-	number = 0;
-	negative = (long long)neg;
-	while (str[i] <= 57 && str[i] >= 48)
-	{
-		num *= 10;
-		num += (str[i] - '0');
-		i++;
-	}
-	num *= negative;
-	if ((i - counter) >= 20)
-		return (0);
-	else if (num > 0)
-	{
-		return (0);
-	}
-	else
-	{
-		number = (int)num;
-		return (number);
-	}
+	iterable = (char *)str;
+	while (ft_isspace(*iterable))
+		iterable++;
+	return (iterable);
 }
 
 int	ft_atoi(char const *str)
 {
-	int	i;
-	int	neg;
-	int	counter;
+	char	*iterable;
+	long	sign;
+	long	result;
 
-	i = 0;
-	neg = 1;
-	counter = 0;
-	while (str[i] == ' ' || (str[i] > 8 && str[i] <= 13))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	sign = 1;
+	result = 0;
+	iterable = skip_whitespaces(str);
+	if (*iterable == '+')
+		iterable++;
+	else if (*iterable == '-')
 	{
-		if (str[i] == '-')
-			neg *= -1;
-		i++;
+		sign *= -1;
+		iterable++;
 	}
-	while (str[i] == '0')
-		i++;
-	counter = i;
-	if (neg == -1)
-		return (ft_atoi_neg(str, i, counter, neg));
-	else
-		return (ft_atoi_pos(str, i, counter, neg));
+	while (ft_isdigit(*iterable))
+	{
+		result = result * 10 + (*iterable - '0');
+		if (result < 0 && sign == -1)
+			return ((int)LONG_MIN);
+		else if (result < 0)
+			return ((int)LONG_MAX);
+		iterable++;
+	}
+	return ((int)(result * sign));
 }

@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 08:50:51 by corellan          #+#    #+#             */
-/*   Updated: 2024/05/10 14:01:10 by corellan         ###   ########.fr       */
+/*   Updated: 2024/06/16 23:21:18 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,8 @@ char	*ft_strjoin_append(char *s1, const char *s2, size_t n);
 char	*ft_lltoa(long long n);
 int		ft_isxdigit(int c);
 long	ft_strtol(const char *str, char **endptr, int base);
+void	ft_del_mem(void **mem);
+void	ft_sitoa(char *str, int n);
+void	ft_sultoa_base(char *str, size_t n, size_t base, size_t format);
 
 #endif
